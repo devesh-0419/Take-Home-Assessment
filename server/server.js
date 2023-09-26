@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-
+const movies = require('./movies_metadata.json');
 const app = express();
 
 // A test route to make sure the server is up.
@@ -12,7 +12,8 @@ app.get("/api/ping", (request, response) => {
 // A mock route to return some data.
 app.get("/api/movies", (request, response) => {
   console.log("❇️ Received GET request to /api/movies");
-  response.json({ data: [{ id: 1, name: '1' }, { id: 2, name: '2' }] });
+ // console.log(movies)
+  response.json({ data: movies });
 });
 
 // Express port-switching logic
